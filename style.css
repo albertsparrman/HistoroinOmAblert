@@ -36,6 +36,8 @@ body {
   width: 100%;
 }
 
+
+
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
@@ -108,8 +110,11 @@ button:focus-visible {
 }
 
 #one {
+  transition: linear 2s;
   background-image: linear-gradient(to bottom right, rgb(196, 137, 10), rgb(216, 177, 93));
 }
+
+
 
 #two {
   background-image: linear-gradient(to bottom right, rgb(20, 155, 54), rgb(23, 179, 101));
@@ -122,4 +127,20 @@ button:focus-visible {
 
 #four {
   background-image: linear-gradient(to bottom right, rgb(22, 10, 196), rgb(47, 73, 187));
+}
+
+#answerScreen {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+  background-color: rgb(31, 172, 62);
+}
+
+h1 {
+  margin-bottom: 2px;
 }
