@@ -1,0 +1,16 @@
+{
+    "q": [{
+        "question": "beans",
+        "answer": "beda",
+        "potentialAnswers": {
+            "ans1": "fred",
+            "ans2": "beda",
+            "ans3": "bert",
+            "ans4": "fortnite"
+        }     
+    },
+    {
+        "aa":"A"
+    }
+    ]
+}

@@ -7,6 +7,7 @@ document.querySelector('#app').innerHTML = `
         <p id="subans">Wow du vet verkligen mycket om herr Abl</p>
         <button id="nextQuestion">Nästa fråga</button>
     </div>
+    <h2 id="timer"></h2>
     <button id="one">1</button>
     <button id="two">2</button>
     <button id="three">3</button>
