@@ -1,3 +1,5 @@
+import options from './answer.json'
+
 export function script(element) {
     const ans1 = element.querySelector('#one')
     const ans2 = element.querySelector('#two')
@@ -5,12 +7,7 @@ export function script(element) {
     const ans4 = element.querySelector('#four')
 
     const answerScreen = element.querySelector('#answerScreen')
-    const nextQuestion = element.querySelector('#nextQuestion')
-    
-
-
-    let answers = ['beda','jod']
-    let potAns = ['fred','beda','fortnite','among us']
+    const nextQuestion = element.querySelector('#nextQuestion')    
     
     let score = 0
 
@@ -26,6 +23,13 @@ export function script(element) {
         answerScreen.style.display = "flex";
         answerScreen.style.backgroundColor = "rgb(231, 10, 30)";
         answer.textContent = 'Du har fel'
+        subans.textContent = 'Hur kunde du missa denna viktiga fakta om Ablet'
+    }
+
+    function end() {
+        answerScreen.style.display = "flex";
+        answerScreen.style.backgroundColor = "rgb(231, 10, 30)";
+        answer.textContent = 'slut'
         subans.textContent = 'Hur kunde du missa denna viktiga fakta om Ablet'
     }
 
@@ -47,12 +51,17 @@ export function script(element) {
         return array;
       }
 
-      
-      function newQuestion(){
+      let b = 0 
+
+      function newQuestion(){ 
+        if(b < options.q.length){
+        answerScreen.style.display = "none"; 
+
+            let answer = options.q[b].answer
+            let potAns = options.q[b].potentialAnswers
+            questionText.innerHTML = options.q[b].question
             let timeLeft = 9
-            timer.textContent = 10
-             
-  
+            timer.textContent = 10  
             let timerId = setInterval(countdown, 1000);
 
             function countdown() {
@@ -65,14 +74,11 @@ export function script(element) {
                     console.log(timeLeft)
                 }
                 
-              }
-            
-      
-            answerScreen.style.display = "none";
-            
-            potAns[1] = 'bert'
+              }              
+              b+=1
+              
 
-            shuffle(potAns)
+            shuffle(potAns)            
 
             ans1.innerHTML = potAns[0]
             ans2.innerHTML = potAns[1]
@@ -82,7 +88,7 @@ export function script(element) {
         
             ans1.addEventListener('click', (e)=> {
                 e.preventDefault()
-                if(answers.some(r=> potAns[0].includes(r)) == true){
+                if(potAns[0]==answer){
                     clearInterval(timerId);
                     correct()
                     score += 10
@@ -95,7 +101,7 @@ export function script(element) {
         
             ans2.addEventListener('click', (e)=> {
                 e.preventDefault()
-                if(answers.some(r=> potAns[1].includes(r)) == true){
+                if(potAns[1]==answer){
                     clearInterval(timerId);
                     correct()
                     score += 10
@@ -108,7 +114,7 @@ export function script(element) {
         
             ans3.addEventListener('click', (e)=> {
                 e.preventDefault()
-                if(answers.some(r=> potAns[2].includes(r)) == true){
+                if(potAns[2]==answer){
                     clearInterval(timerId);
                     correct()
                     score += 10
@@ -122,7 +128,7 @@ export function script(element) {
         
             ans4.addEventListener('click', (e)=> {
                 e.preventDefault()
-                if(answers.some(r=> potAns[3].includes(r)) == true){
+                if(potAns[3]==answer){
                     clearInterval(timerId);
                     correct()
                     score += 10
@@ -131,13 +137,17 @@ export function script(element) {
                     clearInterval(timerId);
                     wrong()
                 }
-            })  
+            }) 
         }
+        else{
+            end()
+        } 
+        }
+        
 
         nextQuestion.addEventListener('click', (e)=> {
             e.preventDefault()
-            newQuestion()
-            
+            newQuestion()           
         })
         
             

@@ -1,16 +1,18 @@
 {
     "q": [{
-        "question": "beans",
-        "answer": "beda",
-        "potentialAnswers": {
-            "ans1": "fred",
-            "ans2": "beda",
-            "ans3": "bert",
-            "ans4": "fortnite"
-        }     
+        "question": "Vad heter herr Abletas guldfisk?",
+        "answer": "Bert",
+        "potentialAnswers": ["Bert", "Ingvar", "Beda", "Inget av ovanstående"]
     },
     {
-        "aa":"A"
+        "question": "Vilken mjukost är Ablerts favorit?",
+        "answer": "Skinkost",
+        "potentialAnswers": ["Räkost", "Mjukost", "Ädelost", "Skinkost"]
+    },
+    {
+        "question":"Vad är herr Albeet favorit palt?",
+        "answer": "Pitepalt",
+        "potentialAnswers":["Pitepalt", "Blodpalt", "Kroppkaka", "Snubben hatar palt"]
     }
     ]
 }
